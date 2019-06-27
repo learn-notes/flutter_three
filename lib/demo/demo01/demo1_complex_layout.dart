@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new MyApp());
-
 enum ScrollMode { complex, tile }
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ComplexLayout();
-  }
-}
 
 ///
 /// 复杂布局
