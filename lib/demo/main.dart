@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_three/demo/demo01/demo1_complex_layout.dart';
 
-import 'utils/LayoutPadding.dart';
+import 'demo2/demo2_hello_world.dart';
+import 'demo3/demo3_channel.dart';
+import 'utils/layout_padding.dart';
 
 void main() => runApp(MyApp());
 
@@ -61,14 +63,25 @@ class _HomeState extends State<Home> {
               }),
         ),
 
-        /// 宏观测试 案例
+        /// HelloWorld 案例
         LayoutPadding.Layout(
           RaisedButton(
-              child: Text('2.宏观测试'),
+              child: Text('2.HelloWorld'),
               onPressed: () {
                 /// 页面跳转
-//                Navigator.push(context,
-//                    MaterialPageRoute(builder: (_) => Macrobencharks()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => HelloWorld()));
+              }),
+        ),
+
+        /// Channel 案例
+        LayoutPadding.Layout(
+          RaisedButton(
+              child: Text('3.Channel案例'),
+              onPressed: () {
+                /// 页面跳转
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => ChannelDemo()));
               }),
         ),
       ],
