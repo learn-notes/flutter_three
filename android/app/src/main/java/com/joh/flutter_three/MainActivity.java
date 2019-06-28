@@ -25,6 +25,12 @@ public class MainActivity extends FlutterActivity {
     private static final String BATTERY_CHANNEL = "samples.flutter.io/battery";
     private static final String CHARGING_CHANNEL = "samples.flutter.io/charging";
 
+    private static final String CHANNEL = "samples.flutter.io/platform_view";
+    private static final String METHOD_SWITCH_VIEW = "switchView";
+    private static final int COUNT_REQUEST = 1;
+
+    private MethodChannel.Result result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +82,22 @@ public class MainActivity extends FlutterActivity {
                     }
                 }
         );
+
+
+        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(
+                new MethodChannel.MethodCallHandler() {
+                    @Override
+                    public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+                        MainActivity.this.result = result;
+                        int count = methodCall.arguments();
+                        if (methodCall.method.equals(METHOD_SWITCH_VIEW)) {
+                            onLaunchFullScreen(count);
+                        } else {
+                            result.notImplemented();
+                        }
+                    }
+                }
+        );
     }
 
     /**
@@ -116,5 +138,11 @@ public class MainActivity extends FlutterActivity {
                     intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
         }
     }
+
+
+    private void onLaunchFullScreen(int count) {
+
+    }
+
 }
 

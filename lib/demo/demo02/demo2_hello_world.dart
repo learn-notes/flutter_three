@@ -17,15 +17,15 @@ class _HelloWorldState extends State<HelloWorld> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text(
-        'Hello, world!',
+        child: Text(
+          'Hello, world!',
 
-        /// textDirection（文本方向）
-        // 文本流从左向右（适用于中文，英文等语言）
-        textDirection: TextDirection.ltr,
-        // 文本流从右向左（适用于阿拉伯语等语言）
-        // textDirection: TextDirection.rtl,
-      ),
+          /// textDirection（文本方向）
+          // 文本流从左向右（适用于中文，英文等语言）
+          textDirection: TextDirection.ltr,
+          // 文本流从右向左（适用于阿拉伯语等语言）
+//           textDirection: TextDirection.rtl,
+        ),
     );
   }
 }
