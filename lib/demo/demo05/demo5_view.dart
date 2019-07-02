@@ -33,22 +33,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static const MethodChannel _methodChannel =
-  MethodChannel('samples.flutter.io/platform_view');
-
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-    });
-  }
-
-  Future<void> _launchPlatformCount() async {
-    final int platformCounter =
-    await _methodChannel.invokeMethod('switchView', _counter);
-    setState(() {
-      _counter = platformCounter;
     });
   }
 
@@ -75,8 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Platform.isIOS
                           ? const Text('Continue in iOS view')
                           : const Text('Continue in Android view'),
-                      onPressed: _launchPlatformCount),
-                ),
+                ),),
               ],
             ),
           ),
@@ -85,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.only(bottom: 15.0, left: 5.0),
           child: Row(
             children: <Widget>[
-              Image.asset('assets/flutter-mark-square-64.png',
+              Image.asset('images/flutter-mark-square-64.png',
                   scale: 1.5),
               const Text(
                 'Flutter',
